@@ -1,3 +1,15 @@
+from fpdf import FPDF
+
+def save_to_pdf(results, filename):
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial", size=12)
+    pdf.cell(200, 10, txt="Student Ranking Results", ln=True, align='C')
+    for line in results.split('\n'):
+        pdf.cell(200, 10, txt=line, ln=True)
+    pdf.output(filename)
+    print(f"Results have been saved to '{filename}'.")
+
 def main():
     total_grade = 0
     num_fail = 0
@@ -56,10 +68,13 @@ def main():
     # Print to console
     print(results)
 
-    # Write results to an external file
+    # Write results to an external text file
     with open("student_results.txt", "w") as file:
         file.write(results)
 
     print("Results have been saved to 'student_results.txt'.")
+
+    # Write results to a PDF file
+    save_to_pdf(results, "student_results.pdf")
 
 main()
