@@ -1,0 +1,69 @@
+import pathlib
+
+import numpy as np
+import torch
+import ultralytics
+
+from .. import bounding_box
+
+class DetectLandingPad:
+
+    __create_key = object()
+    __DEVICE = 0 if torch.cuda.is_available() else "cpu"
+
+    __MODEL_NAME = "best-2n.pt"
+
+    @classmethod
+    def create(cls, model_directory: pathlib.Path) -> "tuple[bool, DetectLandingPad | None]":
+        """
+        model_directory: Directory to models.
+        """
+        if not model_directory.is_dir():
+            return False, None
+
+        model_path = pathlib.PurePosixPath(
+            model_directory,
+            cls.__MODEL_NAME,
+        )
+
+        try:
+            model = ultralytics.YOLO(str(model_path))
+        # Library can throw any exception
+        # pylint: disable-next=broad-exception-caught
+        except Exception:
+            return False, None
+
+        return True, DetectLandingPad(cls.__create_key, model)
+
+    def __init__(self, class_private_create_key: object, model: ultralytics.YOLO) -> None:
+        """
+        Private constructor, use create() method.
+        """
+        assert class_private_create_key is DetectLandingPad.__create_key, "Use create() method"
+
+        self.__model = model
+
+    def run(self, image: np.ndarray) -> "tuple[list[bounding_box.BoundingBox], np.ndarray]":
+        predictions = self.__model.predict(source=image, conf=0.2, device=self.__DEVICE)
+
+        image_annotated = prediction.plot()
+
+        # Get the xyxy boxes list from the Boxes object in the Result object
+        boxes_xyxy = prediction.boxes.xyxy
+
+        # Detach the xyxy boxes to make a copy,
+        # move the copy into CPU space,
+        # and convert to a numpy array
+        boxes_cpu = boxes_xyxy.detach().cpu().numpy()
+
+        for i in range(boxes_cpu.shape[0]):
+            row = boxes_cpu[i]
+            x1 = row[0]
+            y1 = row[1]
+            x2 = row[2]
+            y2 = row[3]
+            success, bbox = bounding_box.BoundingBox.create(np.array([x1, y1, x2, y2]))
+            if success:
+                bounding_boxes.append(bbox)
+
+        return bounding_boxes, image_annotated
