@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Python Projects - Martin Silva-Diaz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        #header {
+            background: url('https://www.shutterstock.com/image-photo/astrophotography-dark-blue-starry-sky-260nw-2272366867.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 20px;
+            color: white;
+            position: relative;
+        }
+        #header::before {
+            content: "";
+            background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 0;
+        }
+        #header h1, #header h3 {
+            position: relative;
+            z-index: 1;
+        }
+        #header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        #header h3 {
+            font-size: 1.5em;
+            margin-top: 5px;
+        }
+        #nav {
+            padding: 10px;
+            background-color: #003366;
+            color: white;
+            width: 100%;
+            text-align: center;
+        }
+        #nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        #nav li {
+            display: inline;
+            margin: 0 15px;
+        }
+        #nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        #content {
+            display: flex;
+            align-items: start;
+            padding: 20px;
+            background-color: black;
+            margin: 0 auto;
+            max-width: 800px;
+            border-radius: 10px;
+            color: white;
+        }
+        #placeholder-image {
+            width: 40%;
+            height: auto;
+            margin-right: 20px;
+            align-self: start;
+            background-color: grey;
+        }
+        #projects {
+            width: 60%;
+        }
+        p {
+            line-height: 1.6;
+            text-align: left;
+        }
+        hr {
+            border-color: #fff;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>Martin Silva-Diaz</h1>
+        <h3>Engineering Undergraduate</h3>
+    </div>
+    <div id="nav">
+        <ul>
+            <li><a href="index.html">About Myself</a></li>
+            <li><a href="python.html">Python</a></li>
+            <li><a href="excel.html">Excel</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <div id="projects">
+            <h2>Projects: Python</h2>
+        </div>
+    <div>
+        <a href="https://github.com/Martins26/Projects-Python/blob/main/Cipher" target="blank"><h1>Cipher</h1></a>
+        <p>
+            <b>Cipher</b> allows you to transform text by replacing specific letters with others based on a mapping you define. You provide two sets of letters: the ones you want to replace (`from_letters`) and their replacements (`to_letters`). The program will then process your input text, replacing the specified letters while preserving the case of each character and leaving everything else unchanged. It’s a simple tool for encoding, decoding, or customizing text transformations.
+        </p>
+        <a href="https://github.com/Martins26/Projects-Python/blob/main/Contact%20Manager" target="blank"><h1>Contact Manager</h1></a>
+        <p>
+            <b>Contact Manager</b> functions as a way to help you manage and organize people's birthdays. You can use commands to add new entries, view the list of birthdays, delete entries, search for specific names, save your list to a file, or load it back later. Additionally, it provides an "echo" mode for confirming actions and a "help" command to guide you through available features. It's a simple and interactive way to keep track of important dates.
+        </p>
+        <a href="https://github.com/Martins26/Projects-Python/blob/main/Grade%20Analyzer" target="blank"><h1>Grade Analyzer</h1></a>
+        <p>
+            <b>Grade Analyzer</b> you to input and analyze student exam grades. It calculates and displays the average grade, identifies the highest and lowest grades, and counts how many students passed (scoring at least 50% of the highest grade) or failed. It also ensures input values, such as maximum possible marks and grades, are valid and within specified ranges. This tool helps summarize class performance effectively.
+        </p>
+    </div>
+</body>
+</html>

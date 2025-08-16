@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Martin Silva-Diaz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+        #header {
+            background: url('https://www.shutterstock.com/image-photo/astrophotography-dark-blue-starry-sky-260nw-2272366867.jpg') no-repeat center center;
+            background-size: cover;
+            padding: 20px;
+            color: white;
+            position: relative;
+        }
+        #header::before {
+            content: "";
+            background: rgba(0, 0, 0, 0.3); /* Dark overlay */
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 0;
+        }
+        #header h1, #header h3 {
+            position: relative;
+            z-index: 1;
+        }
+        #header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        #header h3 {
+            font-size: 1.5em;
+            margin-top: 5px;
+        }
+        #nav {
+            padding: 10px;
+            background-color: #003366; /* Dark blue background */
+            color: white;
+            width: 100%;
+            text-align: center;
+        }
+        #nav ul {
+            list-style: none;
+            padding: 0;
+        }
+        #nav li {
+            display: inline;
+            margin: 0 15px;
+        }
+        #nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        #content {
+            display: flex;
+            align-items: start;
+            padding: 20px;
+            background-color: black; /* Black background for the biography section */
+            margin: 0 auto;
+            max-width: 800px;
+            border-radius: 10px;
+            color: white; /* White text */
+        }
+        #placeholder-image {
+            width: 40%;
+            height: auto;
+            margin-right: 20px;
+            align-self: start;
+            background-color: grey;
+        }
+        #biography {
+            width: 60%;
+        }
+        p {
+            line-height: 1.6;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <h1>Martin Silva-Diaz</h1>
+        <h3>Engineering Undergraduate</h3>
+    </div>
+    <div id="nav">
+        <ul>
+            <li><a href="index.html">About Myself</a></li>
+            <li><a href="python.html">Python</a></li>
+            <li><a href="excel.html">Excel</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <div id="placeholder-image"><!-- Placeholder Image --></div>
+        <div id="biography">
+            <h2>About Myself</h2>
+            <p>
+                A bilingual first-year Management Engineering student at the University of Waterloo, possessing strong expertise in coding, data analysis, and project management. Demonstrated capability in leading and collaborating efficiently, both in volunteer roles and team-based settings. Actively pursuing opportunities to specialize in data analytics, business intelligence, software development, artificial intelligence, and information, product, and project management systems, with a focus on decision software and modeling applications. Skilled in Python, VBA, and Excel, with a dedication to ongoing learning through academic studies and practical experience.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
